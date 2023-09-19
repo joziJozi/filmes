@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import FilmesPopulares from './screens/filmes/FilmesPopulares';
+import { PaperProvider } from 'react-native-paper';
+import FilmesDetalhes from './screens/filmes/FilmesDetalhes';
+import { View } from 'react-native-web';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    
+      <PaperProvider>       
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Filmes-Populares" component={FilmesPopulares} options={{title: 'Filmes Populares'}}></Stack.Screen>
+          <Stack.Screen name="Filmes-Detalhes" component={FilmesDetalhes} options={{title: 'Filmes Detalhes'}}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+      </PaperProvider>
+      
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
