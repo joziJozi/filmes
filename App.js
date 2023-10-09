@@ -1,27 +1,60 @@
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import FilmesPopulares from './screens/filmes/FilmesPopulares';
 import { PaperProvider } from 'react-native-paper';
-import FilmesDetalhes from './screens/filmes/FilmesDetalhes';
-import { View } from 'react-native-web';
-import Atores from './screens/filmes/Atores';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FilmesStack from './screens/filmes/FilmesStack';
+import AtoresStack from './screens/atores/AtoresStack';
 
-const Stack = createNativeStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
   return (
     <>
-    
-      <PaperProvider>       
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Filmes-Populares" component={FilmesPopulares} options={{title: 'Filmes Populares'}}></Stack.Screen>
-          <Stack.Screen name="Filmes-Detalhes" component={FilmesDetalhes} options={{title: 'Filmes Detalhes'}}></Stack.Screen>
-          <Stack.Screen name="Atores" component={Atores} options={{title: 'Atores'}}></Stack.Screen>
-        </Stack.Navigator>
-      </NavigationContainer>
+
+      <PaperProvider>
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen
+              name="Filmes"
+              component={FilmesStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="home" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Atores"
+              component={AtoresStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="account" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Detalhes"
+              component={FilmesStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="account-arrow-right" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Configurações"
+              component={FilmesStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="account-cog-outline" size={26} />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
       </PaperProvider>
-      
+
     </>
   );
 }

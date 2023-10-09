@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Text } from 'react-native-paper'
 import apiFilmes from '../../services/apiFilmes'
+import { ScrollView } from 'react-native'
 
 
 const FilmesPopulares = ({navigation}) => {
@@ -16,7 +17,7 @@ const FilmesPopulares = ({navigation}) => {
 
     return (
         <>
-
+           <ScrollView>
             {filmes.map(item => (
                 <>
                     <Card key={item.id} onPress={() => navigation.push('Filmes-Detalhes', {id: item.id})} style={{marginBottom:15}}>
@@ -30,6 +31,7 @@ const FilmesPopulares = ({navigation}) => {
                     </Card>
                 </>
             ))}
+            </ScrollView>
         </>
     )
 }
