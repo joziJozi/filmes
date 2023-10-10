@@ -4,6 +4,7 @@ import { PaperProvider } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FilmesStack from './screens/filmes/FilmesStack';
 import AtoresStack from './screens/atores/AtoresStack';
+import SeriessStack from './screens/series/SeriessStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,8 +35,8 @@ export default function App() {
               }}
             />
             <Tab.Screen
-              name="Detalhes"
-              component={FilmesStack}
+              name="Series"
+              component={SeriessStack}
               options={{
                 tabBarIcon: () => (
                   <MaterialCommunityIcons name="account-arrow-right" size={26} />

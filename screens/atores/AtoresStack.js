@@ -3,6 +3,7 @@ import React from 'react'
 import AtoresDetalhes from './AtoresDetalhes';
 import Atores from './Atores';
 import AtoresPopulares from './AtoresPopulares';
+import SeriessStack from '../series/SeriessStack';
 
 const Stack = createNativeStackNavigator();
 
